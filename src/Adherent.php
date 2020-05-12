@@ -9,7 +9,10 @@ final class Adherent {
 
 
     public function __construct(string $nom, string $prenom, string $dateNaissance){
-        null;
+        $modification = concatenation($nom, $prenom, $dateNaissance);
+        $modification = capitalisation($modification);
+        $modification = suppressionAccent($modification);
+        $this->identfiant = $modification;        
     }
 
     public function getIdentifiant(){
