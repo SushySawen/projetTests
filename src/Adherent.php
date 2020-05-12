@@ -1,14 +1,16 @@
 <?php
+declare(strict_types=1);
 
+namespace Tests\src;
 
 final class Adherent {
 
-    private $nom;
-    private $prenom;
-    private $date;
+    private $identifiant;
 
-    private function __construct(string $nom, string $prenom, string $dateNaissance){
+
+    public function __construct(string $nom, string $prenom, string $dateNaissance){
         null;
     }
+    
 
 }
