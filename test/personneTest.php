@@ -5,28 +5,17 @@ use PHPUnit\Framework\TestCase;
 
 final class PersonneTest extends TestCase
 {
-    public function testCanBeCreatedFromValidPersonne(): void
+    public function testMauvaisNombreArguments(): void
+    {
+        $this->expectException(BadMethodCallException::class);
+        Adherent::__construct('invalid');
+    }
+
+    public function testCreationOK(): void
     {
         $this->assertInstanceOf(
-            Personne::class,
-            Personne::fromString('user@example.com')
+            Adherent::class,
+            Adherent::__construct('Jean', 'Machin', '08/09/2000')
         );
     }
-
-    public function testCannotBeCreatedFromInvalidPersonne(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        Email::fromString('invalid');
-    }
-/*
-
-    public function testCanBeUsedAsString(): void
-    {
-        $this->assertEquals(
-            'user@example.com',
-            Email::fromString('user@example.com')
-        );
-    }
-*/
 }
