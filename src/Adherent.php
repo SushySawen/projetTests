@@ -3,20 +3,24 @@ declare(strict_types=1);
 
 namespace Tests\src;
 
-final class Adherent {
+class Adherent {
 
     private $identifiant;
 
 
     public function __construct(string $nom, string $prenom, string $dateNaissance){
-        $modification = concatenation($nom, $prenom, $dateNaissance);
-        $modification = capitalisation($modification);
-        $modification = suppressionAccent($modification);
-        $this->identfiant = $modification;        
+        $modification = $this->concatenation($nom, $prenom, $dateNaissance);
+        $modification = $this->suppressionAccent($modification);
+        $modification = $this->capitalisation($modification);        
+        $this->setIdentifiant($modification);
     }
 
     public function getIdentifiant(){
         return $this->identifiant;
+    }
+
+    public function setIdentifiant($string){
+        $this->identifiant = $string;
     }
 
 
